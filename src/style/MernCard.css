@@ -1,0 +1,89 @@
+.mern-card-body {
+    position: relative; 
+    border: 1px black solid;
+    height: 250px;
+    width: 250px;
+    background-color: red;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.mern-card-image {
+    background-color: white;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden; 
+}
+
+.mern-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.mern-card-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+    background-color: rgba(255, 255, 255, 0.9); 
+    color: black; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    padding: 10px; 
+    text-align: left; 
+    z-index: 2; 
+}
+
+.mern-card-image:hover .mern-card-description {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mern-card-image:hover img {
+    opacity: 0;
+}
+
+.mern-card-title {
+    background-color: darkblue;
+    height: 50px;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+@media (max-width: 600px) {
+    .mern-card-body {
+        /* Reduce the size of the card for mobile screens */
+        height: 200px; /* Adjust height as needed */
+        width: 200px; /* Adjust width as needed */
+        margin-left: 5px; /* Reduce margin */
+        margin-right: 5px; /* Reduce margin */
+    }
+
+    .mern-card-image {
+        /* Adjust the height to match the new card size */
+        height: 160px; /* Adjust height as needed */
+    }
+
+    .mern-card-description {
+        /* Adjust the height to match the new image size */
+        height: 160px; /* Adjust height as needed */
+        padding: 8px; /* Adjust padding as needed */
+    }
+
+    .mern-card-title {
+        /* Adjust font size for smaller screens */
+        font-size: 20px; /* Adjust font size as needed */
+    }
+}
