@@ -1,46 +1,8 @@
 import "../style/Contact.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
-
 
 export default function Contact() {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [showConfirmation, setShowConfirmation] = useState(false);
-
-  const validateEmail = (email) => {
-    return email.includes("@") && email.includes(".com");
-  };
-
-  const sendEmail = async (e) => {
-    e.preventDefault();
-
-    if (!validateEmail(email) || message.length < 1) {
-      alert("Please enter a valid email and message!");
-      return;
-    }
-
-    const data = {
-      email,
-      message,
-    };
-
-    try {
-      const response = await axios.post(
-        "http://localhost:3001/api/sendemail",
-        data
-      );
-      console.log(response.data);
-
-      setEmail("");
-      setMessage("");
-      setShowConfirmation(true);
-    } catch (error) {
-      console.error("Error sending email:", error);
-    }
-  };
-
   return (
     <>
       <div className="contact-container">
@@ -58,45 +20,49 @@ export default function Contact() {
         </div>
 
         <div className="contact-form-container">
-          <Form onSubmit={sendEmail}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address:</Form.Label>
+          <Form
+          name='contact'
+          method='post'
+          data-netlify='true'
+          onSubmit='submit'
+          >
+            <Form.Group className="mb-3" controlId="formBasicName">
+              <Form.Label>Name</Form.Label>
               <Form.Control
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="name@example.com"
+                type="text"
+                name="name"
+                placeholder="Enter your name"
               />
             </Form.Group>
 
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Label>Message:</Form.Label>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                placeholder="Enter email"
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formMessage">
+              <Form.Label>Message</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={8}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                name="message"
+                placeholder="Share a short message and I'll get back to you ASAP."
               />
             </Form.Group>
-            {/* 🔥🔥🔥Button🔥🔥🔥 */}
-            <div className="contact-form-button-container">
+
+            <div className="d-flex justify-content-center">
               <Button variant="danger" type="submit">
                 Submit
               </Button>
             </div>
+
           </Form>
         </div>
-
-        {showConfirmation && (
-          <div className="confirmation-message">
-            <p>Your message has been successfully sent!</p>
-          </div>
-        )}
       </div>
     </>
   );
 }
-
