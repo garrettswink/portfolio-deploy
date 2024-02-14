@@ -20,12 +20,9 @@ export default function Contact() {
         </div>
 
         <div className="contact-form-container">
-          <Form
-          name='contact'
-          method='post'
-          data-netlify='true'
-          onSubmit='submit'
-          >
+          <Form name="contact" method="post" data-netlify="true">
+            <Form.Control type="hidden" name="form-name" value="contact" />
+
             <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -59,7 +56,6 @@ export default function Contact() {
                 Submit
               </Button>
             </div>
-
           </Form>
         </div>
       </div>
