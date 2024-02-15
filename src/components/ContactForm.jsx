@@ -7,7 +7,7 @@ import React from 'react';
 export default function ContactForm({ onFormSubmit }) {
   
   const handleSubmit = (e) => {
-    e.preventDefault();
+
     onFormSubmit();
   }  
   
