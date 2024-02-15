@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import Landing from "./pages/LandingPage";
-import Contact from "./pages/Contact";
+import Contact from "./pages/ContactPage";
 
 export default function App() {
   return (

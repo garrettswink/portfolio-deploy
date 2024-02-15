@@ -1,8 +1,23 @@
+// ContactPage
+
+// import ContactForm from "../components/ContactForm.jsx";
+import Thankyou from "../components/Thankyou";
 import "../style/Contact.css";
-import Form from "react-bootstrap/Form";
+
+export default function ContactPage() {
+  return (
+    <>
+   {/* <ContactForm /> */}
+   <Thankyou />
+    </>
+  );
+}
+
+// ContactForm Component
 import Button from "react-bootstrap/Button";
 
-export default function Contact() {
+
+export default function ContactForm() {
   return (
     <>
       <div className="contact-container">
@@ -62,3 +77,29 @@ export default function Contact() {
     </>
   );
 }
+
+// Thankyou Component
+import "../style/Thankyou.css";
+
+export default function Thankyou() {
+  return (
+    <>
+      <div className="thankyou-container">
+        <div className="thankyou-header-container ">
+          <h1>Thank you!</h1>
+        </div>
+
+        <div className="thankyou-overview-container">
+          <p>Your message has been received! I'll be in touch soon.</p>
+        </div>
+      </div>
+    </>
+  );
+}
+
+
+// ChatGPT Prompt
+// When a user arrives at the Contact Page
+// I want the ContactForm displayed
+// When a user clicks the submit button
+// I want the ContactForm replaced by the Thankyou
