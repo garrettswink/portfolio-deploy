@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 
 import Landing from "./pages/LandingPage";
 import Contact from "./pages/ContactPage";
+import Thankyou from "./pages/ThankyouPage";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/thankyou" element={<Thankyou />} />
         </Routes>
         <Footer />
       </div>

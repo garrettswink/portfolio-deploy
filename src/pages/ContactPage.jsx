@@ -19,7 +19,12 @@ export default function Contact() {
           </p>
         </div>
         <div className="contact-form-container">
-          <Form name="contact" method="post" data-netlify="true">
+          <Form 
+          name="contact" 
+          method="post" 
+          data-netlify="true"
+          action="/thankyou"
+          >
             <Form.Control type="hidden" name="form-name" value="contact" />
             <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label>Name</Form.Label>
