@@ -2,16 +2,9 @@ import React from "react";
 import "../style/Contact.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom"; // Step 1: Import useNavigate
 
 export default function Contact() {
-  const navigate = useNavigate(); // Step 2: Get the navigate function
-
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submission
-    // Here you could also handle form validation and submission to a server
-    navigate('/thankyou'); // Step 4: Navigate programmatically to /thankyou
-  };
+  // Removed useNavigate since we're handling redirection with Netlify's hidden field
 
   return (
     <>
@@ -29,9 +22,10 @@ export default function Contact() {
             name="contact" 
             method="post" 
             data-netlify="true"
-            onSubmit={handleSubmit} // Step 3: Remove the action attribute and add an onSubmit handler
+            // Removed onSubmit handler to let Netlify handle the submission
           >
             <Form.Control type="hidden" name="form-name" value="contact" />
+            <Form.Control type="hidden" name="redirect" value="/thankyou" /> {/* This hidden input tells Netlify where to redirect after form submission */}
             <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label>Name</Form.Label>
               <Form.Control
