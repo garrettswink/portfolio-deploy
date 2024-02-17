@@ -22,7 +22,7 @@ export default function Contact() {
           name="contact" 
           method="post" 
           data-netlify="true"
-          action="/thankyou"
+          action="/"
           >
             <Form.Control type="hidden" name="form-name" value="contact" />
             <Form.Group className="mb-3" controlId="formBasicName">
